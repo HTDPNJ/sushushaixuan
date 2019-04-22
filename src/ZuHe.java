@@ -1,20 +1,17 @@
-public class ZuHe
-{ ////返回求组合问题，data[5][3],5个里面随机选3个
-    public static int[][] init(){
-        int[][]data=new int[51][51];
-        data[0][0]=1;
-        for(int i=1;i<51;i++){
-            data[i][0]=1;
-            for(int j=1;j<51;j++){
-                data[i][j]=(data[i-1][j-1]+data[i-1][j])%1000000007;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main
+{
+    public static int[]init(){
+        int[]data=new int[10000001];
+        for(int i=2;i<Math.sqrt(1000001);i++){
+            if(data[i]==0){
+                for(int j=i*i;j<1000001;j=j+i){
+                    data[j]=1;
+                }
             }
         }
         return data;
-    }
-
-    public static void main(String[] args)
-    {
-        int [][]data=init();
-        System.out.println(data[3][5]);
     }
 }
